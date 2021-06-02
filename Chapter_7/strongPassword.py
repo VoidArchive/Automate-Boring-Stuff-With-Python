@@ -15,6 +15,7 @@ def strong_password(password):
       - is eight characters or longer
       - contains uppercase and lowercase characters
       - has one digit or more
+
     """
     return all(check.search(password) for check in PASSWORD_CHECKS)
 
