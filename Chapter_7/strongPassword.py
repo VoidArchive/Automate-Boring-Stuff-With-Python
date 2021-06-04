@@ -3,14 +3,12 @@ import re
 PASSWORD_CHECKS = [
     re.compile(r'[A-Z]'),
     re.compile(r'.{8,}'),
-    re.compile(r'[a-z]'),
     re.compile(r'[0-9]'),
 ]
 
 
 def strong_password(password):
     """
-    Validate if passed password is considered "strong",
     Password is considered strong if:
       - is eight characters or longer
       - contains uppercase and lowercase characters
