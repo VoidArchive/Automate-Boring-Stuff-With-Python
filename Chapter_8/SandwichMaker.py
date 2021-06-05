@@ -8,9 +8,9 @@ Using inputYesNo() to ask if they want mayo, mustard, lettuce, or tomato.
 Using inputInt() to ask how many sandwiches they want. Make sure this number is 1 or more.'''
 
 
-cheeseType = ['cheddar', 'Swiss', 'mozzarella']
 breadChoice = ['wheat', 'white', 'sourdough']
 proteinChoice = ['chicken', 'turkey', 'ham', 'tofu']
+cheeseType = ['cheddar', 'swiss', 'mozzarella']
 
 print('Greetings, Welcome to Sandwich Maker!')
 
@@ -20,7 +20,7 @@ user_proteinChoice = pyip.inputMenu(
     proteinChoice, prompt=" What do you want as your protein? \n")
 
 cheeseChoice = pyip.inputYesNo("Do you want cheese? \n")
-if cheeseChoice == True:
+if cheeseChoice == 'Yes':
     user_cheeseChoice = pyip.inputMenu(
         cheeseChoice, prompt=" Which cheese would you like? \n")
 
@@ -32,4 +32,25 @@ for choice in stuffing:
 numbersOfSandwich = pyip.inputInt(
     'How many sandwich would you like? \n', min=1)
 
-# TODO: make a price list
+'''bread 'wheat' : 3, 'white': 2, 'sourdough' : 1
+protein 'chicken',:6  'turkey' : 5, 'ham' : 4, 'tofu' : 3
+cheese 'cheddar' : 3, 'Swiss' : 2, 'mozzarella' : 1
+Rest of the stuff are Free'''
+
+
+def breadPrice(bread):
+    return 3 if bread == 'wheat' else 2 if bread == 'white' else 1
+
+
+def proteinPrice(protein):
+    return 6 if protein == 'chicken' else 5 if protein == 'turkey' else 4 if protein == 'ham' else 3
+
+
+def cheesePrice(cheese):
+    return 3 if cheese == 'cheddar' else 2 if cheese == 'swiss' else 1
+
+
+totalPrice = numbersOfSandwich * \
+    (breadPrice(breadPrice) + proteinPrice(proteinChoice) + cheesePrice(cheeseChoice))
+
+print(f"You total price is: {totalPrice} $")
